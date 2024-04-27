@@ -1,3 +1,5 @@
+const loadBtn = document.querySelector('.load');
+
 document.addEventListener('DOMContentLoaded', function () {
 	function loadImage(image) {
 		image.setAttribute('src', image.getAttribute('data-src'));
@@ -17,5 +19,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	lazyImages.forEach(image => {
 		observer.observe(image);
+	});
+
+	loadBtn.addEventListener('click', () => {
+		lazyImages.forEach(image => {
+			loadImage(image);
+		});
 	});
 });
